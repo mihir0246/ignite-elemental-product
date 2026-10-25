@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IGNITE — Fire-Forged Gemstones Born From Pure Flame</title>
+  <meta name="description" content="PHOENIX IGNITE — Fire-shaped gemstones born from pure flame.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Interactive Canvas / Video Stage -->
+  <div class="viewport-stage" id="stage">
+    
+    <!-- 60FPS Ultra-HD Cinematic Video Scrubbed by Scroll -->
+    <video
+      id="phoenixVideo"
+      class="cinematic-video"
+      src="elemental-assets/f6d42c8d-6775-4d70-92e7-51b9821fc929.webm"
+      muted
+      playsinline
+      preload="auto"
+    ></video>
+
+    <!-- Interactive Navigation Layer (Matches exact positions) -->
+    <header class="interactive-navbar">
+      <div class="nav-brand" id="navLogo">
+        <!-- Transparent click area mapped over the Phoenix logo -->
+        <a href="#scene-hero" class="nav-hitbox brand-hitbox" aria-label="Phoenix Home"></a>
+      </div>
+      <nav class="nav-links-hitbox">
+        <a href="#scene-hero" class="nav-item-btn active" data-progress="0">All Crystals</a>
+        <a href="#scene-feather" class="nav-item-btn" data-progress="0.45">Rubies</a>
+        <a href="#scene-ring" class="nav-item-btn" data-progress="0.85">Crowns</a>
+        <a href="#scene-ring" class="nav-item-btn" data-progress="0.95">Rings</a>
+      </nav>
+      <div class="nav-cta-hitbox">
+        <button class="hitbox-btn preorder-trigger" aria-label="Pre Order Now">
+          <span>PRE ORDER</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 9L7.5 6L4.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Interactive Clickable Hotspots mapped directly over the UI elements -->
+    <div class="interactive-overlay" id="interactiveOverlay">
+      
+      <!-- Hero Scene Hotspots -->
+      <div class="scene-hotspots scene-hero-hotspots" id="heroHotspots">
+        <!-- Main CTA Button Hotspot -->
+        <button class="hero-preorder-hitbox preorder-trigger" id="mainPreorderBtn" aria-label="Pre Order Gemstones">
+          <span class="btn-ripple"></span>
+        </button>
+
+        <!-- Social Icons Hotspots -->
+        <div class="hero-socials-hitbox">
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="social-hitbox" title="Facebook"></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-hitbox" title="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-hitbox" title="LinkedIn"></a>
+        </div>
+
+        <!-- Product Cards Hotspots -->
+        <div class="cards-hitbox-container">
+          <div class="card-hitbox" id="cardFlameBlaze" role="button" tabindex="0" title="Inspect Flame Blaze Ring">
+            <div class="card-hover-indicator"></div>
+          </div>
+          <div class="card-hitbox" id="cardEmberCrown" role="button" tabindex="0" title="Inspect Ember Crown Ring">
+            <div class="card-hover-indicator"></div>
+          </div>
+        </div>
+
+        <!-- Scroll down trigger -->
+        <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scroll Down to Discover">
+          <span class="scroll-arrow">↓</span>
+        </button>
+      </div>
+
+      <!-- Ring Scene Hotspots (Visible when scrubbed to ring section) -->
+      <div class="scene-hotspots scene-ring-hotspots" id="ringHotspots">
+        <button class="ring-preorder-hitbox preorder-trigger" aria-label="Pre Order Forged Ring">
+          <span class="btn-ripple"></span>
+        </button>
+        <div class="editorial-badges-hitbox">
+          <div class="badge-hitbox" data-index="1" title="High Jewelry Lookbook Editorial 1"></div>
+          <div class="badge-hitbox" data-index="2" title="High Jewelry Lookbook Editorial 2"></div>
+          <div class="badge-hitbox" data-index="3" title="High Jewelry Lookbook Editorial 3"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Audio Atmosphere Toggle -->
+    <button class="audio-control-btn" id="audioToggle" aria-label="Toggle Flame Ambiance">
+      <svg class="audio-icon sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+      <svg class="audio-icon sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+    </button>
+
+    <!-- Scroll Progress Indicator Bar -->
+    <div class="scroll-progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+  </div>
+
+  <!-- Virtual Scroll Spacer (Enables smooth GSAP scroll scrubbing) -->
+  <div class="scroll-track" id="scrollTrack">
+    <div class="scroll-section" id="scene-hero"></div>
+    <div class="scroll-section" id="scene-feather"></div>
+    <div class="scroll-section" id="scene-ring"></div>
+  </div>
+
+  <!-- Interactive Modal for Pre-order & Product Inspect -->
+  <dialog class="modal-dialog" id="productModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <div class="modal-badge">PHOENIX ATELIER • EXCLUSIVE FORGE</div>
+        <h2 class="modal-title" id="modalTitle">Flame Blaze Ring</h2>
+        <p class="modal-desc" id="modalDesc">
+          Hand-sculpted in 18K molten rose gold, crowned with a faceted Mandarin garnet that mimics an untamed eternal flame. Limited to 100 numbered editions globally.
+        </p>
+        <div class="modal-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">STONE</span>
+            <span class="meta-val">4.2ct Fiery Garnet</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">SETTING</span>
+            <span class="meta-val">Pavé Diamond Arc</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">EDITION</span>
+            <span class="meta-val">100 Casts Total</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-preorder-modal" id="modalConfirmBtn">RESERVE ALLOCATION</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- GSAP Core & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
